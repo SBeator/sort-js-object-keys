@@ -1,65 +1,26 @@
 # sort-js-object-keys README
 
-This is the README for your extension "sort-js-object-keys". After writing up a brief description, we recommend including the following sections.
+This is an extension to alphabetically sort the keys in _selected_ js objects keys in your code.
 
-## Features
+## Reference
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+Referred the source code from [Rich Somerfield](https://github.com/richie5um)'s extension
+[vscode-sort-json](https://github.com/richie5um/vscode-sort-json), his extension can only sort JSON, I added new feature base on his extension so this `sort-js-object-keys` extension can sort the JS object keys in source code.
 
-For example if there is an image subfolder under your extension project workspace:
+## Usage
 
-\!\[feature X\]\(images/feature-x.png\)
+* Select a js object in your source  
+Note: it uses full lines so ensure the selected lines are a valid js object, start from the "{" and end from the "}"
+* Run the extension 
+    * Sort JS object keys  
+    Keybinding: `Alt+S`
+    * Sort JS object keys (Reverse)
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.0.1
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on OSX or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on OSX or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (OSX) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+- Initial release of a testing version  
+- Add `Sort JS object keys` command
+- Add `Sort JS object keys (Reverse)` command
