@@ -1,52 +1,56 @@
 {
-  "name": "sort-js-object-keys",
-  "displayName": "Sort JS object keys",
-  "description": "An extension to sort the js object keys",
-  "version": "0.0.1",
-  "publisher": "zengxingxin",
-  "engines": {
-    "vscode": "^1.12.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "onCommand:sortJsObjectKeys.sortJsObjectKeys",
-    "onCommand:sortJsObjectKeys.sortJsObjectKeysReverse"
-  ],
-  "main": "./lib",
-  "contributes": {
-    "commands": [
-      {
-        "command": "sortJsObjectKeys.sortJsObjectKeys",
-        "title": "Sort JS object keys"
-      },
-      {
-        "command": "sortJsObjectKeys.sortJsObjectKeysReverse",
-        "title": "Sort JS object keys (Reverse)"
-      }
+    "name": "sort-js-object-keys",
+    "displayName": "Sort JS object keys",
+    "description": "An extension to sort the js object keys",
+    "version": "0.0.2",
+    "publisher": "zengxingxin",
+    "engines": {
+        "vscode": "^1.12.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/SBeator/sort-js-object-keys"
+    },
+    "categories": [
+        "Other"
     ],
-    "keybindings": [
-      {
-        "command": "sortJsObjectKeys.sortJsObjectKeys",
-        "key": "Alt+S"
-      }
-    ]
-  },
-  "scripts": {
-    "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "node ./node_modules/vscode/bin/test"
-  },
-  "devDependencies": {
-    "typescript": "^2.0.3",
-    "vscode": "^1.0.0",
-    "mocha": "^2.3.3",
-    "eslint": "^3.6.0",
-    "@types/node": "^6.0.40",
-    "@types/mocha": "^2.2.32"
-  },
-  "dependencies": {
-    "json5": "^0.5.1",
-    "lodash": "^4.17.4"
-  }
+    "activationEvents": [
+        "onCommand:sortJsObjectKeys.sortJsObjectKeys",
+        "onCommand:sortJsObjectKeys.sortJsObjectKeysReverse"
+    ],
+    "main": "./lib",
+    "contributes": {
+        "commands": [
+            {
+                "command": "sortJsObjectKeys.sortJsObjectKeys",
+                "title": "Sort JS object keys"
+            },
+            {
+                "command": "sortJsObjectKeys.sortJsObjectKeysReverse",
+                "title": "Sort JS object keys (Reverse)"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "sortJsObjectKeys.sortJsObjectKeys",
+                "key": "Alt+S"
+            }
+        ]
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0",
+        "mocha": "^2.3.3",
+        "eslint": "^3.6.0",
+        "@types/node": "^6.0.40",
+        "@types/mocha": "^2.2.32"
+    },
+    "dependencies": {
+        "json5": "^0.5.1",
+        "lodash": "^4.17.4"
+    }
 }
