@@ -1,6 +1,6 @@
 # Sort JS Object Keys README
 
-This is an extension to alphabetically sort the keys in _selected_ js objects keys in your code.
+This is a VS code extension to alphabetically sort the keys in _selected_ js objects keys in your code.
 
 ## Reference
 
