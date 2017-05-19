@@ -1,14 +1,18 @@
 # Change Log
-All notable changes to the "sort-js-object-keys" extension will be documented in this file.
+All notable changes to the "sort*js*object*keys" extension will be documented in this file.
 
 ### [0.0.1]
-- Initial release of a testing version  
-- Add `Sort JS object keys` command 
-- Add `Sort JS object keys (Reverse)` command
+
+* Initial release of a testing version  
+
+* Add `Sort JS object keys` command 
+
+* Add `Sort JS object keys (Reverse)` command
 
 ### [0.0.3]
 
-- Support ES6 shorthand object  
+* Support ES6 shorthand object  
+
     e.g: 
     ```js
     {
@@ -24,7 +28,8 @@ All notable changes to the "sort-js-object-keys" extension will be documented in
     }
     ```
 
-- Support value which is multiple lines or have space in it. 
+* Support value which is multiple lines or have space in it. 
+
     e.g:
     ```js
     {
@@ -40,7 +45,8 @@ All notable changes to the "sort-js-object-keys" extension will be documented in
         b: new String('b').length
     }
     ```
-- Will automatically add trailing comma if the prevs object has trailing comma
+* Will automatically add trailing comma if the prevs object has trailing comma
+
     e.g:
     ```js
     {
@@ -69,3 +75,10 @@ All notable changes to the "sort-js-object-keys" extension will be documented in
         b: 'b',
     }
     ```
+### [0.0.6]
+
+* Support Array in object
+
+* Auto indent object if it is not in the first collumn
+
+* Auto use ES6 short hand value
