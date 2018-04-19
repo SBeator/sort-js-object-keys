@@ -82,3 +82,30 @@ All notable changes to the "sort*js*object*keys" extension will be documented in
 * Auto indent object if it is not in the first collumn
 
 * Auto use ES6 short hand value
+
+### [0.0.7]
+
+* Support line comments in object
+
+    e.g:
+    ```js
+    {
+        b: 2,
+        // some comment
+        a: 1,
+        // another comment
+        d: 5,
+        c: 4,
+    }
+    ```
+    Will be sorted to 
+    ```js
+    {
+        // some comment
+        a: 1,
+        b: 2,
+        c: 4,
+        // another comment
+        d: 5,
+    }
+    ```
