@@ -159,4 +159,31 @@ suite('Extension Tests', function() {
     }`
     );
   });
+
+  test('Support line comments at the end of the object', function() {
+    var jsObject = `{
+        b: 2,
+        // some comment
+        a: 1,
+        // another comment
+        d: 5,
+        c: 4,
+        // end comment
+    }`;
+
+    var result = sorter.sort(jsObject, 4, JSON5, ['asc'], {});
+
+    assert.equal(
+      result,
+      `{
+        // some comment
+        a: 1,
+        b: 2,
+        c: 4,
+        // another comment
+        d: 5,
+        // end comment
+    }`
+    );
+  });
 });
