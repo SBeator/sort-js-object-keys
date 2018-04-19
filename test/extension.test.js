@@ -10,7 +10,6 @@ var assert = require('assert');
 
 // You can import and use all API from the 'vscode' module
 // as well as import your extension to test it
-var vscode = require('vscode');
 var sorter = require('../lib/sort-json-core');
 var JSON5 = require('json5');
 
@@ -54,6 +53,28 @@ suite('Extension Tests', function() {
         password: 'password',
         bbb: 'bbb',
         aaa: 'aaa'
+    }`
+    );
+  });
+
+  test('format js object', function() {
+    var jsObject = `{
+        user : 'user',
+
+        aaa: 'aaa',
+        bbb: 'bbb'  ,
+        password:    'password'
+    }`;
+
+    var result = sorter.sort(jsObject, 4, JSON5, ['asc'], {});
+
+    assert.equal(
+      result,
+      `{
+        aaa: 'aaa',
+        bbb: 'bbb',
+        password: 'password',
+        user: 'user'
     }`
     );
   });
@@ -110,6 +131,31 @@ suite('Extension Tests', function() {
       `{
         a: 'a',
         b: 'b',
+    }`
+    );
+  });
+
+  test('Support line comments', function() {
+    var jsObject = `{
+        b: 2,
+        // some comment
+        a: 1,
+        // another comment
+        d: 5,
+        c: 4,
+    }`;
+
+    var result = sorter.sort(jsObject, 4, JSON5, ['asc'], {});
+
+    assert.equal(
+      result,
+      `{
+        // some comment
+        a: 1,
+        b: 2,
+        c: 4,
+        // another comment
+        d: 5,
     }`
     );
   });
