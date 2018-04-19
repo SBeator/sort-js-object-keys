@@ -11,14 +11,106 @@ var assert = require('assert');
 // You can import and use all API from the 'vscode' module
 // as well as import your extension to test it
 var vscode = require('vscode');
-var myExtension = require('../extension');
+var sorter = require('../lib/sort-json-core');
+var JSON5 = require('json5');
 
-// Defines a Mocha test suite to group tests of similar kind together
-suite("Extension Tests", function() {
+suite('Extension Tests', function() {
+  // Defines a Mocha unit test
+  test('normal js object asc', function() {
+    var jsObject = `{
+        user: 'user',
+        aaa: 'aaa',
+        bbb: 'bbb',
+        password: 'password'
+    }`;
 
-    // Defines a Mocha unit test
-    test("Something 1", function() {
-        assert.equal(-1, [1, 2, 3].indexOf(5));
-        assert.equal(-1, [1, 2, 3].indexOf(0));
-    });
+    var result = sorter.sort(jsObject, 4, JSON5, ['asc'], {});
+
+    assert.equal(
+      result,
+      `{
+        aaa: 'aaa',
+        bbb: 'bbb',
+        password: 'password',
+        user: 'user'
+    }`
+    );
+  });
+
+  test('normal js object desc', function() {
+    var jsObject = `{
+        user: 'user',
+        aaa: 'aaa',
+        bbb: 'bbb',
+        password: 'password'
+    }`;
+
+    var result = sorter.sort(jsObject, 4, JSON5, ['desc'], {});
+
+    assert.equal(
+      result,
+      `{
+        user: 'user',
+        password: 'password',
+        bbb: 'bbb',
+        aaa: 'aaa'
+    }`
+    );
+  });
+
+  test('ES6 feature test', function() {
+    var jsObject = `{
+        user: 'user',
+        aaa,
+        bbb: 'bbb',
+        password
+    }`;
+
+    var result = sorter.sort(jsObject, 4, JSON5, ['asc'], {});
+
+    assert.equal(
+      result,
+      `{
+        aaa,
+        bbb: 'bbb',
+        password,
+        user: 'user'
+    }`
+    );
+  });
+
+  test('Multi lines value test', function() {
+    var jsObject = `{
+        b: new String('b')
+            .length,
+        a: new String('a')
+    }`;
+
+    var result = sorter.sort(jsObject, 4, JSON5, ['asc'], {});
+
+    assert.equal(
+      result,
+      `{
+        a: new String('a'),
+        b: new String('b').length
+    }`
+    );
+  });
+
+  test('Auto add comma', function() {
+    var jsObject = `{
+        b: 'b',
+        a: 'a',
+    }`;
+
+    var result = sorter.sort(jsObject, 4, JSON5, ['asc'], {});
+
+    assert.equal(
+      result,
+      `{
+        a: 'a',
+        b: 'b',
+    }`
+    );
+  });
 });
