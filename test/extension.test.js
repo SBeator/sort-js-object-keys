@@ -57,6 +57,27 @@ suite('Extension Tests', function() {
     );
   });
 
+  test('normal js object indent 2', function() {
+    var jsObject = `{
+      user: 'user',
+      aaa: 'aaa',
+      bbb: 'bbb',
+      password: 'password'
+    }`;
+
+    var result = sorter.sort(jsObject, 2, JSON5, ['asc'], {});
+
+    assert.equal(
+      result,
+      `{
+      aaa: 'aaa',
+      bbb: 'bbb',
+      password: 'password',
+      user: 'user'
+    }`
+    );
+  });
+
   test('format js object', function() {
     var jsObject = `{
         user : 'user',
@@ -156,6 +177,31 @@ suite('Extension Tests', function() {
         c: 4,
         // another comment
         d: 5,
+    }`
+    );
+  });
+
+  test('Support line comments for indent 2', function() {
+    var jsObject = `{
+        b: 2,
+        // some comment
+        a: 1,
+        // another comment
+        d: 5,
+        c: 4,
+    }`;
+
+    var result = sorter.sort(jsObject, 2, JSON5, ['asc'], {});
+
+    assert.equal(
+      result,
+      `{
+      // some comment
+      a: 1,
+      b: 2,
+      c: 4,
+      // another comment
+      d: 5,
     }`
     );
   });
