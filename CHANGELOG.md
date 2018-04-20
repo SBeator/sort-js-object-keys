@@ -109,3 +109,7 @@ All notable changes to the "sort*js*object*keys" extension will be documented in
         d: 5,
     }
     ```
+
+### [0.0.8]
+
+* Fix an indent not correct bug
