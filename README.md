@@ -131,3 +131,24 @@ Referred the source code from [Rich Somerfield](https://github.com/richie5um)'s 
 ### 0.0.8
 
 * Fix an indent not correct bug
+
+### 0.0.9
+
+* Support \' in string
+
+    e.g:
+    ```js
+    {
+        b: 'test \'',
+        c: 'test \' test',
+        a: '\' test',
+    }
+    ```
+    Will be sorted to 
+    ```js
+    {
+        a: '\' test',
+        b: 'test \'',
+        c: 'test \' test',
+    }
+    ```
