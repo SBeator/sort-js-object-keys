@@ -13,9 +13,8 @@ var assert = require('assert');
 var sorter = require('../lib/sort-json-core');
 var JSON5 = require('json5');
 
-suite('Extension Tests', function() {
-  // Defines a Mocha unit test
-  test('normal js object asc', function() {
+suite('Extension Tests', function () {
+  test('normal js object asc', function () {
     var jsObject = `{
         user: 'user',
         aaa: 'aaa',
@@ -36,7 +35,7 @@ suite('Extension Tests', function() {
     );
   });
 
-  test('normal js object desc', function() {
+  test('normal js object desc', function () {
     var jsObject = `{
         user: 'user',
         aaa: 'aaa',
@@ -57,7 +56,7 @@ suite('Extension Tests', function() {
     );
   });
 
-  test('normal js object indent 2', function() {
+  test('normal js object indent 2', function () {
     var jsObject = `{
       user: 'user',
       aaa: 'aaa',
@@ -78,7 +77,7 @@ suite('Extension Tests', function() {
     );
   });
 
-  test('format js object', function() {
+  test('format js object', function () {
     var jsObject = `{
         user : 'user',
 
@@ -100,7 +99,7 @@ suite('Extension Tests', function() {
     );
   });
 
-  test('ES6 feature test', function() {
+  test('ES6 feature test', function () {
     var jsObject = `{
         user: 'user',
         aaa,
@@ -121,7 +120,7 @@ suite('Extension Tests', function() {
     );
   });
 
-  test('Multi lines value test', function() {
+  test('Multi lines value test', function () {
     var jsObject = `{
         b: new String('b')
             .length,
@@ -139,7 +138,7 @@ suite('Extension Tests', function() {
     );
   });
 
-  test('Auto add comma', function() {
+  test('Auto add comma', function () {
     var jsObject = `{
         b: 'b',
         a: 'a',
@@ -156,7 +155,7 @@ suite('Extension Tests', function() {
     );
   });
 
-  test('Support line comments', function() {
+  test('Support line comments', function () {
     var jsObject = `{
         b: 2,
         // some comment
@@ -181,7 +180,7 @@ suite('Extension Tests', function() {
     );
   });
 
-  test('Support line comments for indent 2', function() {
+  test('Support line comments for indent 2', function () {
     var jsObject = `{
         b: 2,
         // some comment
@@ -206,7 +205,7 @@ suite('Extension Tests', function() {
     );
   });
 
-  test('Support line comments at the end of the object', function() {
+  test('Support line comments at the end of the object', function () {
     var jsObject = `{
         b: 2,
         // some comment
@@ -233,7 +232,7 @@ suite('Extension Tests', function() {
     );
   });
 
-  test("Support ' in string", function() {
+  test("Support ' in string", function () {
     var jsObject = `{
         b: 'test \\'',
         c: 'test \\' test',
@@ -248,6 +247,50 @@ suite('Extension Tests', function() {
         a: '\\' test',
         b: 'test \\'',
         c: 'test \\' test',
+    }`
+    );
+  });
+
+  test('Not change " in string ', function () {
+    var jsObject = `{
+        d: "\\" test",
+        b: 'test " test',
+        e: "test' test",
+        a: "test' test",
+        c: 'test """" test',
+    }`;
+
+    var result = sorter.sort(jsObject, 4, JSON5, ['asc'], {});
+
+    assert.equal(
+      result,
+      `{
+        a: "test' test",
+        b: 'test " test',
+        c: 'test """" test',
+        d: "\\" test",
+        e: "test' test",
+    }`
+    );
+  });
+
+  test('Support ES6 string key', function () {
+    var jsObject = `{
+        'b': 'test',
+        a: 1,
+        'a': 1,
+        b: 'test',
+    }`;
+
+    var result = sorter.sort(jsObject, 4, JSON5, ['asc'], {});
+
+    assert.equal(
+      result,
+      `{
+        'a': 1,
+        'b': 'test',
+        a: 1,
+        b: 'test',
     }`
     );
   });
