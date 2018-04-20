@@ -232,4 +232,23 @@ suite('Extension Tests', function() {
     }`
     );
   });
+
+  test("Support ' in string", function() {
+    var jsObject = `{
+        b: 'test \\'',
+        c: 'test \\' test',
+        a: '\\' test',
+    }`;
+
+    var result = sorter.sort(jsObject, 4, JSON5, ['asc'], {});
+
+    assert.equal(
+      result,
+      `{
+        a: '\\' test',
+        b: 'test \\'',
+        c: 'test \\' test',
+    }`
+    );
+  });
 });
