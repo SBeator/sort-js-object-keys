@@ -9,12 +9,11 @@ Referred the source code from [Rich Somerfield](https://github.com/richie5um)'s 
 
 ## Usage
 
-* Select a js object in your source
+![Usage animation](images/usage.gif)
 
+1. Select a js object in your source  
   Note: it uses full lines so ensure the selected lines are a valid js object, start from the "{" and end from the "}"
-
-* Run the extension
-
-  * Sort JS object keys
-  Keybinding: `Alt+S`
-  * Sort JS object keys (Reverse)
+1. Run the extension command  
+    * Sort JS object keys  
+    Keybinding: `Alt+S`
+    * Sort JS object keys (Reverse)
