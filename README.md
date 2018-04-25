@@ -5,7 +5,7 @@ This is a VS code extension to alphabetically sort the keys in _selected_ js obj
 ## Reference
 
 Referred the source code from [Rich Somerfield](https://github.com/richie5um)'s extension
-[vscode-sort-json](https://github.com/richie5um/vscode-sort-json), his extension can only sort JSON, I added new feature base on his extension so this `sort-js-object-keys` extension can sort the JS object keys in source code.
+[vscode-sort-json](https://github.com/richie5um/vscode-sort-json), his extension can only sort JSON, I added new feature base on his extension so this extension can sort the JS object keys in source code.
 
 ## Usage
 
