@@ -2,7 +2,7 @@
   "name": "sort-js-object-keys",
   "displayName": "Sort JS object keys",
   "description": "An extension to sort the js object keys",
-  "version": "0.0.10",
+  "version": "0.0.12",
   "publisher": "zengxingxin",
   "engines": {
     "vscode": "^1.12.0"
