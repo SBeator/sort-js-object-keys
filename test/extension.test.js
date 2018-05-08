@@ -22,7 +22,7 @@ suite('Extension Tests', function() {
         password: 'password'
     }`;
 
-    var result = sorter.sort(jsObject, 4, JSON5, ['asc'], {});
+    var result = sorter.sort(jsObject, 4, ['asc'], {});
 
     assert.equal(
       result,
@@ -40,7 +40,7 @@ suite('Extension Tests', function() {
 
     var result;
     try {
-      result = sorter.sort(jsObject, 4, JSON5, ['asc'], {});
+      result = sorter.sort(jsObject, 4, ['asc'], {});
     } catch (e) {
       result = e.message;
     }
@@ -55,7 +55,7 @@ suite('Extension Tests', function() {
 
     var result;
     try {
-      result = sorter.sort(jsObject, 4, JSON5, ['asc'], {});
+      result = sorter.sort(jsObject, 4, ['asc'], {});
     } catch (e) {
       result = e.message;
     }
@@ -71,7 +71,7 @@ suite('Extension Tests', function() {
         password: 'password'
     }`;
 
-    var result = sorter.sort(jsObject, 4, JSON5, ['desc'], {});
+    var result = sorter.sort(jsObject, 4, ['desc'], {});
 
     assert.equal(
       result,
@@ -92,7 +92,7 @@ suite('Extension Tests', function() {
       password: 'password'
     }`;
 
-    var result = sorter.sort(jsObject, 2, JSON5, ['asc'], {});
+    var result = sorter.sort(jsObject, 2, ['asc'], {});
 
     assert.equal(
       result,
@@ -114,7 +114,7 @@ suite('Extension Tests', function() {
         password:    'password'
     }`;
 
-    var result = sorter.sort(jsObject, 4, JSON5, ['asc'], {});
+    var result = sorter.sort(jsObject, 4, ['asc'], {});
 
     assert.equal(
       result,
@@ -135,7 +135,7 @@ suite('Extension Tests', function() {
         password
     }`;
 
-    var result = sorter.sort(jsObject, 4, JSON5, ['asc'], {});
+    var result = sorter.sort(jsObject, 4, ['asc'], {});
 
     assert.equal(
       result,
@@ -155,7 +155,7 @@ suite('Extension Tests', function() {
         a: new String('a')
     }`;
 
-    var result = sorter.sort(jsObject, 4, JSON5, ['asc'], {});
+    var result = sorter.sort(jsObject, 4, ['asc'], {});
 
     assert.equal(
       result,
@@ -172,7 +172,7 @@ suite('Extension Tests', function() {
         a: 'a',
     }`;
 
-    var result = sorter.sort(jsObject, 4, JSON5, ['asc'], {});
+    var result = sorter.sort(jsObject, 4, ['asc'], {});
 
     assert.equal(
       result,
@@ -193,7 +193,7 @@ suite('Extension Tests', function() {
         c: 4,
     }`;
 
-    var result = sorter.sort(jsObject, 4, JSON5, ['asc'], {});
+    var result = sorter.sort(jsObject, 4, ['asc'], {});
 
     assert.equal(
       result,
@@ -218,7 +218,7 @@ suite('Extension Tests', function() {
         c: 4,
     }`;
 
-    var result = sorter.sort(jsObject, 2, JSON5, ['asc'], {});
+    var result = sorter.sort(jsObject, 2, ['asc'], {});
 
     assert.equal(
       result,
@@ -245,7 +245,7 @@ suite('Extension Tests', function() {
   //       // end comment
   //   }`;
 
-  //   var result = sorter.sort(jsObject, 4, JSON5, ['asc'], {});
+  //   var result = sorter.sort(jsObject, 4, ['asc'], {});
 
   //   assert.equal(
   //     result,
@@ -268,7 +268,7 @@ suite('Extension Tests', function() {
         a: '\\' test',
     }`;
 
-    var result = sorter.sort(jsObject, 4, JSON5, ['asc'], {});
+    var result = sorter.sort(jsObject, 4, ['asc'], {});
 
     assert.equal(
       result,
@@ -289,7 +289,7 @@ suite('Extension Tests', function() {
         c: 'test """" test',
     }`;
 
-    var result = sorter.sort(jsObject, 4, JSON5, ['asc'], {});
+    var result = sorter.sort(jsObject, 4, ['asc'], {});
 
     assert.equal(
       result,
@@ -311,7 +311,7 @@ suite('Extension Tests', function() {
         b: 'test',
     }`;
 
-    var result = sorter.sort(jsObject, 4, JSON5, ['asc'], {});
+    var result = sorter.sort(jsObject, 4, ['asc'], {});
 
     assert.equal(
       result,
