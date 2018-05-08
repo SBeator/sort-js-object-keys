@@ -11,7 +11,6 @@ var assert = require('assert');
 // You can import and use all API from the 'vscode' module
 // as well as import your extension to test it
 var sorter = require('../lib/sort-json-core');
-var JSON5 = require('json5');
 
 suite('Extension Tests', function() {
   test('normal js object asc', function() {
@@ -52,6 +51,35 @@ suite('Extension Tests', function() {
     var jsObject = `{test('normal js object desc', function() {
       var jsObject = '';
     }`;
+
+    var result;
+    try {
+      result = sorter.sort(jsObject, 4, ['asc'], {});
+    } catch (e) {
+      result = e.message;
+    }
+
+    assert.equal(result, 'Please make sure your selected text is a JS obejct!');
+  });
+
+  test('Not js object 3', function() {
+    var jsObject = `'111'`;
+
+    var result;
+    try {
+      result = sorter.sort(jsObject, 4, ['asc'], {});
+    } catch (e) {
+      result = e.message;
+    }
+
+    assert.equal(result, 'Please make sure your selected text is a JS obejct!');
+  });
+
+  test('Not js object 4', function() {
+    var jsObject = `{
+      a:1,
+      b:2
+    }; var b = 2;`;
 
     var result;
     try {
