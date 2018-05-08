@@ -10,7 +10,7 @@ var assert = require('assert');
 
 // You can import and use all API from the 'vscode' module
 // as well as import your extension to test it
-var sorter = require('../lib/sort-json-core');
+var sorter = require('../lib/sort-js-object-core');
 
 suite('Extension Tests', function() {
   test('normal js object asc', function() {
@@ -243,34 +243,6 @@ suite('Extension Tests', function() {
     }`
     );
   });
-
-  // NOT suppot end line comments because babel not suppot it correctly
-  // test('Support line comments at the end of the object', function() {
-  //   var jsObject = `{
-  //       b: 2,
-  //       // some comment
-  //       a: 1,
-  //       // another comment
-  //       d: 5,
-  //       c: 4,
-  //       // end comment
-  //   }`;
-
-  //   var result = sorter.sort(jsObject, 4, ['asc'], {});
-
-  //   assert.equal(
-  //     result,
-  //     `{
-  //       // some comment
-  //       a: 1,
-  //       b: 2,
-  //       c: 4,
-  //       // another comment
-  //       d: 5,
-  //       // end comment
-  //   }`
-  //   );
-  // });
 
   test("Support ' in string", function() {
     var jsObject = `{
