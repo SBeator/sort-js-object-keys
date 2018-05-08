@@ -194,23 +194,6 @@ suite('Extension Tests', function() {
     );
   });
 
-  test('Auto add comma', function() {
-    var jsObject = `{
-        b: 'b',
-        a: 'a',
-    }`;
-
-    var result = sorter.sort(jsObject, 4, ['asc'], {});
-
-    assert.equal(
-      result,
-      `{
-        a: 'a',
-        b: 'b',
-    }`
-    );
-  });
-
   test('Support line comments', function() {
     var jsObject = `{
         b: 2,
@@ -218,7 +201,7 @@ suite('Extension Tests', function() {
         a: 1,
         // another comment
         d: 5,
-        c: 4,
+        c: 4
     }`;
 
     var result = sorter.sort(jsObject, 4, ['asc'], {});
@@ -231,7 +214,7 @@ suite('Extension Tests', function() {
         b: 2,
         c: 4,
         // another comment
-        d: 5,
+        d: 5
     }`
     );
   });
@@ -256,7 +239,7 @@ suite('Extension Tests', function() {
       b: 2,
       c: 4,
       // another comment
-      d: 5,
+      d: 5
     }`
     );
   });
@@ -303,7 +286,7 @@ suite('Extension Tests', function() {
       `{
         a: '\\' test',
         b: 'test \\'',
-        c: 'test \\' test',
+        c: 'test \\' test'
     }`
     );
   });
@@ -314,7 +297,7 @@ suite('Extension Tests', function() {
         b: 'test " test',
         e: "test' test",
         a: "test' test",
-        c: 'test """" test',
+        c: 'test """" test'
     }`;
 
     var result = sorter.sort(jsObject, 4, ['asc'], {});
@@ -326,7 +309,7 @@ suite('Extension Tests', function() {
         b: 'test " test',
         c: 'test """" test',
         d: "\\" test",
-        e: "test' test",
+        e: "test' test"
     }`
     );
   });
@@ -347,7 +330,7 @@ suite('Extension Tests', function() {
         'a': 1,
         'b': 'test',
         a: 1,
-        b: 'test',
+        b: 'test'
     }`
     );
   });
