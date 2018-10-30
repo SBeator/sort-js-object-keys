@@ -375,4 +375,31 @@ suite('Extension Tests', function() {
     }`
     );
   });
+
+  test('Typescript mix object and value as test', function() {
+    var jsObject = `{
+        user: {
+          name: 'Xingxin',
+          age: 26
+        } as IPerson,
+        date: '02/03/2018' as any,
+        message: 'this is message',
+        password: '****' as IPassword
+    }`;
+
+    var result = sorter.sort(jsObject,4, ['asc'], {});
+
+    assert.equal(
+      result,
+      `{
+        date: ('02/03/2018' as any),
+        message: 'this is message',
+        password: ('****' as IPassword),
+        user: ({
+            name: 'Xingxin',
+            age: 26
+        } as IPerson)
+    }`
+    );
+  });
 });

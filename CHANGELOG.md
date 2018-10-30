@@ -1,6 +1,36 @@
 # Change Log
 All notable changes to the "sort*js*object*keys" extension will be documented in this file.
 
+### [1.0.2]
+
+* Update parser to use [@babel/parser](https://babeljs.io/docs/en/next/babel-parser.html) to parse  the code
+
+* Support Typescript `as` expression:
+    e.g:
+  ```typescript
+    {
+        user: {
+          name: 'Xingxin',
+          age: 26
+        } as IPerson,
+        date: '02/03/2018' as any,
+        message: 'this is message',
+        password: '****' as IPassword
+    }
+  ```
+  Will be formated to:
+  ```typescript
+    {
+        date: ('02/03/2018' as any),
+        message: 'this is message',
+        password: ('****' as IPassword),
+        user: ({
+            name: 'Xingxin',
+            age: 26
+        } as IPerson)
+    }
+  ```
+  
 ### [1.0.0]
 
 * Use babylon + babel/generator to parse and genertate the code
