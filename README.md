@@ -1,10 +1,11 @@
 # Sort JS Object Keys README
 
-This is a VS code extension to alphabetically sort the keys in _selected_ js objects keys in your code.
+This is a VS code extension to alphabetically sort the keys in _selected_ js objects keys in your code. 
 
-## Reference
-
-Use [@babel/parser](https://babeljs.io/docs/en/next/babel-parser.html) to parse the code, and sort the parsed code, then use [@babel/generator](https://babeljs.io/docs/en/next/babel-generator.html) to genertate the code back to document
+It supports:
+- The latest ECMAScript version enabled by default (ES2017).
+- Typescript.
+- Comment attachment.
 
 ## Usage
 
@@ -16,3 +17,7 @@ Use [@babel/parser](https://babeljs.io/docs/en/next/babel-parser.html) to parse 
     * Sort JS object keys  
     Keybinding: `Alt+S`
     * Sort JS object keys (Reverse)
+
+## Reference
+
+Use [@babel/parser](https://babeljs.io/docs/en/next/babel-parser.html) to parse the code, and sort the parsed code, then use [@babel/generator](https://babeljs.io/docs/en/next/babel-generator.html) to genertate the code back to document
