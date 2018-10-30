@@ -44,7 +44,7 @@ suite('Extension Tests', function() {
       result = e.message;
     }
 
-    assert.equal(result, 'Please make sure your selected text is a JS obejct!');
+    assert.equal(result, 'Please make sure your selected text is a JS object!');
   });
 
   test('Not js object 2', function() {
@@ -59,7 +59,7 @@ suite('Extension Tests', function() {
       result = e.message;
     }
 
-    assert.equal(result, 'Please make sure your selected text is a JS obejct!');
+    assert.equal(result, 'Please make sure your selected text is a JS object!');
   });
 
   test('Not js object 3', function() {
@@ -72,7 +72,7 @@ suite('Extension Tests', function() {
       result = e.message;
     }
 
-    assert.equal(result, 'Please make sure your selected text is a JS obejct!');
+    assert.equal(result, 'Please make sure your selected text is a JS object!');
   });
 
   test('Not js object 4', function() {
@@ -88,7 +88,7 @@ suite('Extension Tests', function() {
       result = e.message;
     }
 
-    assert.equal(result, 'Please make sure your selected text is a JS obejct!');
+    assert.equal(result, 'Please make sure your selected text is a JS object!');
   });
 
   test('normal js object desc', function() {
@@ -303,6 +303,75 @@ suite('Extension Tests', function() {
         'b': 'test',
         a: 1,
         b: 'test'
+    }`
+    );
+  });
+
+  test('normal js object asc', function() {
+    var jsObject = `{
+        user: 'user',
+        aaa: 'aaa',
+        bbb: 'bbb',
+        password: 'password'
+    }`;
+
+    var result = sorter.sort(jsObject, 4, ['asc'], {});
+
+    assert.equal(
+      result,
+      `{
+        aaa: 'aaa',
+        bbb: 'bbb',
+        password: 'password',
+        user: 'user'
+    }`
+    );
+  });
+
+  test('Typescript value as test', function() {
+    var jsObject = `{
+        user: 'user',
+        aaa: 111 as number,
+        bbb: 'bbb' as any,
+        password: 'password'
+    }`;
+
+    var result = sorter.sort(jsObject, 4, ['asc'], {});
+
+    assert.equal(
+      result,
+      `{
+        aaa: (111 as number),
+        bbb: ('bbb' as any),
+        password: 'password',
+        user: 'user'
+    }`
+    );
+  });
+
+  test('Typescript object as test', function() {
+    var jsObject = `{
+        user: 'user',
+        aaa: {
+          bb: 2,
+          aaa: 1
+        } as IObject,
+        bbb: 'bbb' as any,
+        password: 'password'
+    }`;
+
+    var result = sorter.sort(jsObject,4, ['asc'], {});
+
+    assert.equal(
+      result,
+      `{
+        aaa: ({
+            bb: 2,
+            aaa: 1
+        } as IObject),
+        bbb: ('bbb' as any),
+        password: 'password',
+        user: 'user'
     }`
     );
   });
