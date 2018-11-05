@@ -1,6 +1,34 @@
 # Change Log
 All notable changes to the "sort*js*object*keys" extension will be documented in this file.
 
+### [1.0.5]
+
+* Support nested object sorting  
+    e.g: 
+    ```javascript
+    {
+        user: 'user',
+        aaa: {
+          index: '321',
+          id: '123'
+        },
+        bbb: 'bbb',
+        password: 'password'
+    }
+    ```
+    Will be formatted to:
+    ```javascript
+    {
+        aaa: {
+            id: '123',
+            index: '321'
+        },
+        bbb: 'bbb',
+        password: 'password',
+        user: 'user'
+    }
+    ```
+
 ### [1.0.2]
 
 * Update parser to use [@babel/parser](https://babeljs.io/docs/en/next/babel-parser.html) to parse  the code
