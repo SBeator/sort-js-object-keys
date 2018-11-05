@@ -328,6 +328,27 @@ suite('Extension Tests', function() {
     );
   });
 
+  test('Typescript full object test', function() {
+    var jsObject = `{
+        user: 'user',
+        aaa: 111 as number,
+        bbb: 'bbb' as any,
+        password: 'password'
+    } as any`;
+
+    var result = sorter.sort(jsObject, 4, ['asc'], {});
+
+    assert.equal(
+      result,
+      `({
+    aaa: (111 as number),
+    bbb: ('bbb' as any),
+    password: 'password',
+    user: 'user'
+} as any)`
+    );
+  });
+
   test('Typescript value as test', function() {
     var jsObject = `{
         user: 'user',
@@ -366,8 +387,8 @@ suite('Extension Tests', function() {
       result,
       `{
         aaa: ({
-            bb: 2,
-            aaa: 1
+            aaa: 1,
+            bb: 2
         } as IObject),
         bbb: ('bbb' as any),
         password: 'password',
@@ -396,9 +417,77 @@ suite('Extension Tests', function() {
         message: 'this is message',
         password: ('****' as IPassword),
         user: ({
-            name: 'Xingxin',
-            age: 26
+            age: 26,
+            name: 'Xingxin'
         } as IPerson)
+    }`
+    );
+  });
+
+  test('nest js object', function() {
+    var jsObject = `{
+        user: 'user',
+        aaa: {
+          index: '321',
+          id: '123'
+        },
+        bbb: 'bbb',
+        password: 'password'
+    }`;
+
+    var result = sorter.sort(jsObject, 4, ['asc'], {});
+
+    assert.equal(
+      result,
+      `{
+        aaa: {
+            id: '123',
+            index: '321'
+        },
+        bbb: 'bbb',
+        password: 'password',
+        user: 'user'
+    }`
+    );
+  });
+
+  test('nest js object in array asc', function() {
+    var jsObject = `{
+        user: {
+          name: 'Xingxin',
+          age: 26,
+          children: [{
+            name: 'Yaya',
+            age: 1 
+          }, {
+            name: 'Potato',
+            age: 2
+          }]
+        },
+        date: '02/03/2018',
+        message: ['this is message', 'this is another message'],
+        password: '****'
+    }`;
+
+    var result = sorter.sort(jsObject,4, ['asc'], {});
+
+    assert.equal(
+      result,
+      `{
+        date: '02/03/2018',
+        message: ['this is message', 'this is another message'],
+        password: '****',
+        user: {
+            age: 26,
+            children: [{
+                age: 1,
+                name: 'Yaya'
+            }, {
+                age: 2,
+                name: 'Potato'
+            }],
+            name: 'Xingxin'
+        }
     }`
     );
   });
