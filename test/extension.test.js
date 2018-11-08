@@ -299,10 +299,10 @@ suite('Extension Tests', function() {
     assert.equal(
       result,
       `{
-        'a': 1,
-        'b': 'test',
         a: 1,
-        b: 'test'
+        'a': 1,
+        b: 'test',
+        'b': 'test'
     }`
     );
   });
@@ -399,6 +399,23 @@ suite('Extension Tests', function() {
             name: 'Xingxin',
             age: 26
         } as IPerson)
+    }`
+    );
+  });
+
+  test('Sort in natural order', function() {
+    var jsObject = `{
+        a10b: 'teszt',
+        a2b: 2
+    }`;
+
+    var result = sorter.sort(jsObject,4, ['asc'], {});
+
+    assert.equal(
+      result,
+      `{
+        a2b: 2,
+        a10b: 'teszt'
     }`
     );
   });
