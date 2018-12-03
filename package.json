@@ -2,7 +2,7 @@
   "name": "sort-js-object-keys",
   "displayName": "Sort JS object keys",
   "description": "An extension to sort the js object keys",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "publisher": "zengxingxin",
   "engines": {
     "vscode": "^1.12.0"
@@ -24,8 +24,7 @@
   ],
   "main": "./lib",
   "contributes": {
-    "commands": [
-      {
+    "commands": [{
         "command": "sortJsObjectKeys.sortJsObjectKeys",
         "title": "Sort JS object keys"
       },
@@ -34,12 +33,10 @@
         "title": "Sort JS object keys (Reverse)"
       }
     ],
-    "keybindings": [
-      {
-        "command": "sortJsObjectKeys.sortJsObjectKeys",
-        "key": "Alt+S"
-      }
-    ]
+    "keybindings": [{
+      "command": "sortJsObjectKeys.sortJsObjectKeys",
+      "key": "Alt+S"
+    }]
   },
   "scripts": {
     "postinstall": "node ./node_modules/vscode/bin/install",

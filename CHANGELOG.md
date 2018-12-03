@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to the "sort*js*object*keys" extension will be documented in this file.
 
+### [1.0.6]
+
+* Use natural sort order for the key/value with or without quotes
+
 ### [1.0.5]
 
 * Support nested object sorting  
