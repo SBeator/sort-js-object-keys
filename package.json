@@ -24,7 +24,8 @@
   ],
   "main": "./lib",
   "contributes": {
-    "commands": [{
+    "commands": [
+      {
         "command": "sortJsObjectKeys.sortJsObjectKeys",
         "title": "Sort JS object keys"
       },
@@ -33,10 +34,12 @@
         "title": "Sort JS object keys (Reverse)"
       }
     ],
-    "keybindings": [{
-      "command": "sortJsObjectKeys.sortJsObjectKeys",
-      "key": "Alt+S"
-    }]
+    "keybindings": [
+      {
+        "command": "sortJsObjectKeys.sortJsObjectKeys",
+        "key": "Alt+S"
+      }
+    ]
   },
   "scripts": {
     "postinstall": "node ./node_modules/vscode/bin/install",
@@ -49,7 +52,7 @@
     "eslint": "^3.6.0",
     "mocha": "^5.2.0",
     "typescript": "^2.0.3",
-    "vscode": "^1.0.0"
+    "vscode": "^1.1.22"
   },
   "dependencies": {
     "@babel/generator": "7.0.0-beta.46",
