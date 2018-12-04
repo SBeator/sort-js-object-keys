@@ -26,7 +26,7 @@ suite('Extension Tests', function() {
     assert.equal(
       result,
       `{
-        aaa: 'aaa',
+        aaa: 'aaa'11,
         bbb: 'bbb',
         password: 'password',
         user: 'user'
