@@ -16,7 +16,14 @@
     "email": "star_yes@qq.com"
   },
   "categories": [
-    "Other"
+    "Formatters"
+  ],
+  "keywords": [
+    "Javascript",
+    "Object",
+    "Sort",
+    "Typescript",
+    "object-literal-sort-keys"
   ],
   "activationEvents": [
     "onCommand:sortJsObjectKeys.sortJsObjectKeys",
