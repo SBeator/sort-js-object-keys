@@ -506,4 +506,27 @@ suite('Extension Tests', function() {
     }`
     );
   });
+
+  test('normal js object with spread', function() {
+    var jsObject = `{
+        user: 'user',
+        aaa: 'aaa',
+        ...object,
+        bbb: 'bbb',
+        password: 'password'
+    }`;
+
+    var result = sorter.sort(jsObject, 4, ['asc'], {});
+
+    assert.equal(
+      result,
+      `{
+        aaa: 'aaa',
+        bbb: 'bbb',
+        password: 'password',
+        user: 'user',
+        ...object
+    }`
+    );
+  });
 });
